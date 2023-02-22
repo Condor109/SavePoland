@@ -8,7 +8,9 @@ function letter_move(id,message){
         return
       }
       j++
-      change("#p_2")
+      change("#p_2,#p_3",1,-0.1,"0")
+
+
     }
     else if (i==message.length){
       clearInterval(int);
@@ -49,24 +51,33 @@ function letter_move(id,message){
 }*/
 //add_img("p_1","d_1",3)
 
-function change(ids){
-  let doc=document.querySelector(ids);
-  let i=1;
+function change(ids,i,c,h){
+  let doc=document.querySelectorAll(ids);
 
-  let int=setInterval(frame,100);
+  let int=setInterval(frame,50);
   function frame(){
-    if(i<=0){
+    if(i<0 || i>1){
+      for (let z=0;z<doc.length;z++){
+        doc[z].style.height=h;
+      }
       clearInterval(int);
+      g++;
+      if(g==1){
+        change("#d_1,#d_2",0,0.1,"auto") 
+      }
       
     }
     else{
-      doc.style.opacity=i.toString();
-      i-=0.1
+      for (let z=0;z<doc.length;z++){
+        doc[z].style.opacity=i.toString();
+      }
+      i+=c
     }
   }
   return
 }
 
+var g=0;
 var j=0;
 var imgs=["./img/soldier.png","./img/cavalry.png","./img/tank.png"]
 id_p=["p_1","p_2","p_3"];
