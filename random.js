@@ -3,9 +3,12 @@ function letter_move(id,message){
   let i=0;
   let int=setInterval(frame,100);
   function frame(){
-    if (j==3){
-      change()
-      return;
+    if (j>=3){
+      if(j==4){
+        return
+      }
+      j++
+      change("#p_2")
     }
     else if (i==message.length){
       clearInterval(int);
@@ -46,12 +49,22 @@ function letter_move(id,message){
 }*/
 //add_img("p_1","d_1",3)
 
-function change(){
-  doc=document.querySelector("#d_1");
-  console.log(doc.style.height)
-  doc.style.height="auto"
-  doc.style.opacity="1"
+function change(ids){
+  let doc=document.querySelector(ids);
+  let i=1;
 
+  let int=setInterval(frame,100);
+  function frame(){
+    if(i<=0){
+      clearInterval(int);
+      
+    }
+    else{
+      doc.style.opacity=i.toString();
+      i-=0.1
+    }
+  }
+  return
 }
 
 var j=0;
@@ -60,5 +73,4 @@ id_p=["p_1","p_2","p_3"];
 messages=["THE DESTINY OF POLAND IS IN YOUR HANDS","1 SEPTEMBER 1939",
 "Germany has started the invasion of Poland. As the major of its ground forces,you will have to take the right (and random) decisions to defend the Polish Fatherland."
 ]
-letter_move(id_p[j],messages[j]);
-change();
+letter_move(id_p[j],messages[j])
