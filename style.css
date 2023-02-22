@@ -1,7 +1,7 @@
 body{
   overflow: hidden;
-  background-image: url(./img/map.jpg);
-  background-size: cover;
+  background-color: rgb(78, 77, 53);
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
 }
@@ -14,30 +14,33 @@ h1{
 }
 
 p{
+  display: flex;
   position: relative;
-  text-align: center;
+  justify-content:center;
+  flex-grow: 0;
   color: rgb(255, 255, 255);
   
 }
 
-#p_1, #p_3{
-  vertical-align: middle;
+#p_1, #p_2{
   font-size: 30px;
   font-weight: bold;
+  flex-grow: 0;
 }
 
-#p_2{
+#p_3{
+  text-align: center;
+
   font-size: 25px;
   margin: 30px 300px 30px;
   
 }
 
 div#d_1{
-  position: absolute;
   align-self: center;
-  top: auto;
-  bottom: -250px;
   display: flex;
+  opacity: 0;
+  height: 0;
 }
 
 #d_1 img{
